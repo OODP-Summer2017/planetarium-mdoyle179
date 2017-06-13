@@ -15,7 +15,6 @@ public class GasGiantPlanet extends Planet{
 
 	@Override
 	public String getCelestialClassification() {
-		// TODO Auto-generated method stub
 		return "Gas Giant Planet";
 	}
 

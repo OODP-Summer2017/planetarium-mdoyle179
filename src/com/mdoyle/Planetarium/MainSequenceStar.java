@@ -24,25 +24,13 @@ public class MainSequenceStar extends Star{
 	
 	@Override
 	public String getCelestialClassification() {
-		// TODO Auto-generated method stub
 		return "Main Sequence Star";
 	}
 	
-//	@Override
-//	public String toString() {
-//
-//	}
 	
 	@Override
 	public String getFactualSummary() {
-		return "Name = " + super.getCommonName() + "\n" + 
-				"Celestial Classification = " + getCelestialClassification() + "\n" + 
-				"Constellation Desgination = " + super.getConstellationDesignation() + "\n" + 
-				"Spectral Type = " + super.getSpectralType() + "\n" + 
-				"Apparent Magnitude = " + super.getApparentMagnitude() + "\n" + 
-				"Absolute Magnitude = " + super.getAbsoluteMagnitude() + "\n" + 
-				"Distance from Sun = " + super.getDistanceFromSun() + "\n" +
-				"Planets = " + super.getPlanets().get(0).getCommonName() + "\n" + //TODO: fix the way this line prints out
+		return super.getFactualSummary() +
 				"Relative Mass = " + getRelativeMassToSun() + "\n";
 	}
 }

@@ -7,6 +7,8 @@ public abstract class Star extends AstroEntity{
 	private StarTempType spectralType;
 	private double apparentMagnitude;
 	private double absoluteMagnitude;
+	private double distanceFromSun;
+	private List<Planet> planets;
 	
 	public Star(String commonName, String constellationDesignation, StarTempType spectralType, double apparentMagnitude,
 			double absoluteMagnitude, double distanceFromSun, List<Planet> planets) {
@@ -18,9 +20,23 @@ public abstract class Star extends AstroEntity{
 		this.distanceFromSun = distanceFromSun;
 		this.planets = planets;
 	}
-	
-	private double distanceFromSun;
-	private List<Planet> planets;
+
+	@Override
+	public String getFactualSummary() {
+		StringBuilder planetNames = new StringBuilder();
+		for (Planet planet : getPlanets()) {
+			planetNames.append(planet.getCommonName());
+			planetNames.append(", ");
+		}
+		
+		return super.getFactualSummary() +
+				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
+				"Spectral Type = " + getSpectralType() + "\n" + 
+				"Apparent Magnitude = " + getApparentMagnitude() + "\n" + 
+				"Absolute Magnitude = " + getAbsoluteMagnitude() + "\n" + 
+				"Distance from Sun = " + getDistanceFromSun() + "\n" +
+				"Planets = " + planetNames.toString() + "\n";
+	}
 	
 	public String getConstellationDesignation() {
 		return constellationDesignation;
