@@ -29,6 +29,6 @@ public class GasGiantPlanet extends Planet{
 	@Override
 	public String getFactualSummary() {
 		return super.getFactualSummary() +
-				"Has ice caps = " + hasCloudBelt() + "\n";
+				"Has cloud belts = " + hasCloudBelt() + "\n";
 	}
 }

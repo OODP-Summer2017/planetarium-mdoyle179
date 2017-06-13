@@ -24,13 +24,16 @@ public abstract class Planet extends AstroEntity{
 	
 	public String getFactualSummary() {
 		StringBuilder satelliteNames = new StringBuilder();
-		for (String satellite : getNamesOfBiggestSatellites()) {
-			satelliteNames.append(satellite);
-			satelliteNames.append(", ");
-		}
+		List<String> satelliteList = getNamesOfBiggestSatellites();
 		
+		for(int i = 0; i < satelliteList.size(); i++) {
+			satelliteNames.append(satelliteList.get(i));
+			if (i != satelliteList.size()-1){
+				satelliteNames.append(", ");
+			}
+		}		
 		return  super.getFactualSummary() + 
-				"Distance from Sun = " + getDistanceFromSun() + "AU \n" + 
+				"Distance from Sun = " + getDistanceFromSun() + " AU \n" + 
 				"Sidereal Day = " + getSiderealDay() + "\n" + 
 				"Orbital Period = " + getOrbitalPeriod() + "\n" + 
 				"Has rings = " + hasRings() + "\n" + 

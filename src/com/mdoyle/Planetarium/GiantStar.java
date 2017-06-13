@@ -22,7 +22,7 @@ public class GiantStar extends Star{
 	@Override
 	public String getFactualSummary() {
 		return super.getFactualSummary() +
-				"Relative Mass = " + getGiantness() + "\n";
+				"Giantness = " + getGiantness() + "\n";
 	}
 	
 	public GiantnessType getGiantness() {

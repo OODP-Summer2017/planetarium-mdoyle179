@@ -12,50 +12,94 @@ public class Planetarium {
 		//create object to represent each concrete class
 		//invoke getFactualSummary() method, and print results to the console. use polymorphism
 		List<AstroEntity> entities = new ArrayList<AstroEntity>();
+
+		List<String> mercurySatellites = new ArrayList<String>();
+		TerrestialPlanet mercury = new TerrestialPlanet("Mercury", .39, 58.65, 87.97, 0, mercurySatellites, false, false);
+				
+		List<String> venusSatellites = new ArrayList<String>();
+		TerrestialPlanet venus = new TerrestialPlanet("Venus", .72, 243.1, 224.70, 0, venusSatellites, false, false);
 		
 		List<String> earthSatellites = new ArrayList<String>();
 		earthSatellites.add("Moon");
 		TerrestialPlanet earth = new TerrestialPlanet("Earth", 1.0, 1.0, 365.256, 1, earthSatellites, false, true);
-		entities.add(earth);
+		
+		List<String> marsSatellites = new ArrayList<String>();
+		marsSatellites.add("Phobos");
+		marsSatellites.add("Deimos");
+		TerrestialPlanet mars = new TerrestialPlanet("Mars", 1.524, 1.026, 687, 2, marsSatellites, false, true);
 		
 		List<String> jupiterSatellites = new ArrayList<String>();
 		jupiterSatellites.add("Ganymede");
 		jupiterSatellites.add("Callisto");
 		jupiterSatellites.add("IO");
 		GasGiantPlanet jupiter = new GasGiantPlanet("Jupiter", 5.203, 0.41, 4332.71, 67, jupiterSatellites, true, true);
-		entities.add(jupiter);
 	
+		List<String> saturnSatellites = new ArrayList<String>();
+		saturnSatellites.add("Titan");
+		saturnSatellites.add("Rhea");
+		saturnSatellites.add("Iapetus");
+		GasGiantPlanet saturn = new GasGiantPlanet("Saturn", 9.540, 0.426, 10759.5, 62, saturnSatellites, true, true);
+		
+		List<String> uranusSatellites = new ArrayList<String>();
+		uranusSatellites.add("Titania");
+		uranusSatellites.add("Oberon");
+		uranusSatellites.add("Umbriel");
+		GasGiantPlanet uranus = new GasGiantPlanet("Uranus", 19.19, 0.717, 30685, 27, uranusSatellites, true, false);
+		
+		List<String> neptuneSatellites = new ArrayList<String>();
+		neptuneSatellites.add("Triton");
+		neptuneSatellites.add("Proteus");
+		neptuneSatellites.add("Nereid");
+		GasGiantPlanet neptune = new GasGiantPlanet("Neptune", 30.06, 0.671, 60190, 14, neptuneSatellites, true, false);
+		
 		List<String> plutoSatellites = new ArrayList<String>();
 		plutoSatellites.add("Charon");
 		plutoSatellites.add("Nix");
 		plutoSatellites.add("Hydra");
-		DwarfPlanet pluto = new DwarfPlanet("Pluto", 39.53, 6.386, 90800, 5, plutoSatellites, false, true);
-		entities.add(pluto);
+		DwarfPlanet pluto = new DwarfPlanet("Pluto", 39.53, 6.386, 90800, 5, plutoSatellites, false, false);
+		
+		
+		List<Planet> sunPlanets = new ArrayList<Planet>();	
+		sunPlanets.add(mercury);
+		sunPlanets.add(venus);
+		sunPlanets.add(earth);
+		sunPlanets.add(mars);
+		sunPlanets.add(jupiter);
+		sunPlanets.add(saturn);
+		sunPlanets.add(uranus);
+		sunPlanets.add(neptune);
+		sunPlanets.add(pluto);
+		MainSequenceStar sun = new MainSequenceStar("Sun", "Our Sun", StarTempType.G, -26.75, 4.82, 0.0, sunPlanets, 1.0);
 		
 		List<Planet> algolPlanets = new ArrayList<Planet>();	
 		GiantStar algol = new GiantStar("Algol", "Beta Persei", StarTempType.K, 2.12, -.10, 93, algolPlanets, GiantnessType.SUB_GIANT);
-		entities.add(algol);
 		
 		List<Planet> sanduleakPlanets = new ArrayList<Planet>();
-		
 		Calendar peakBrillianceDate = Calendar.getInstance();
 		peakBrillianceDate.set(Calendar.MONTH, Calendar.MAY);
 		peakBrillianceDate.set(Calendar.DAY_OF_MONTH, 20);
 		peakBrillianceDate.set(Calendar.YEAR, 1987);
+		SupernovaStar sanduleak = new SupernovaStar("Sanduleak - 69 - 202", "Supernova 1987A", StarTempType.B, 2.9, -15.6, 163000.0, sanduleakPlanets, SupernovaType.II, peakBrillianceDate.getTime());
 		
-		SupernovaStar sanduleak = new SupernovaStar("Sanduleak -69 - 202", "Supernova 1987A", StarTempType.B, 2.9, -15.6, 163000.0, sanduleakPlanets, SupernovaType.II, peakBrillianceDate.getTime());
+		CelestialVisitorImpl halleysComet = new CelestialVisitorImpl("Halley's Comet");		
+
+		//Add the entities to the list
+		entities.add(sun);
+		entities.add(mercury);
+		entities.add(venus);
+		entities.add(earth);
+		entities.add(mars);
+		entities.add(jupiter);
+		entities.add(saturn);
+		entities.add(uranus);
+		entities.add(neptune);
+		entities.add(pluto);
+		entities.add(algol);
 		entities.add(sanduleak);
-		
-		CelestialVisitorImpl halleysComet = new CelestialVisitorImpl("Halley's Comet");
 		entities.add(halleysComet);
 		
-		List<Planet> sunPlanets = new ArrayList<Planet>();	
-		sunPlanets.add(earth);
-		sunPlanets.add(jupiter);
-		sunPlanets.add(pluto);
-		MainSequenceStar sun = new MainSequenceStar("Sun", "Our Sun", StarTempType.G, -26.75, 4.82, 0.0, sunPlanets, 1.0);
-		entities.add(sun);
-
+		System.out.println("Planetarium");
+		System.out.println("*********************");
 		for(AstroEntity entity : entities) {
 			System.out.println(entity.getFactualSummary());
 		}

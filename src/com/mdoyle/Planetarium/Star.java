@@ -24,17 +24,20 @@ public abstract class Star extends AstroEntity{
 	@Override
 	public String getFactualSummary() {
 		StringBuilder planetNames = new StringBuilder();
-		for (Planet planet : getPlanets()) {
-			planetNames.append(planet.getCommonName());
-			planetNames.append(", ");
-		}
+		List<Planet> planetList = getPlanets();
 		
+		for(int i = 0; i < planetList.size(); i++) {
+			planetNames.append(planetList.get(i).getCommonName());
+			if (i != planetList.size()-1){
+				planetNames.append(", ");
+			}
+		}				
 		return super.getFactualSummary() +
 				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
 				"Spectral Type = " + getSpectralType() + "\n" + 
 				"Apparent Magnitude = " + getApparentMagnitude() + "\n" + 
 				"Absolute Magnitude = " + getAbsoluteMagnitude() + "\n" + 
-				"Distance from Sun = " + getDistanceFromSun() + "\n" +
+				"Distance from Sun = " + getDistanceFromSun() + " light years \n" +
 				"Planets = " + planetNames.toString() + "\n";
 	}
 	
