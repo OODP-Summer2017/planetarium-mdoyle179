@@ -2,6 +2,10 @@ package com.mdoyle.Planetarium;
 
 import java.util.List;
 
+/**
+ * Defines general characteristics of Planets
+ *
+ */
 public abstract class Planet extends AstroEntity{
 	
 	private double distanceFromSun;
@@ -28,6 +32,8 @@ public abstract class Planet extends AstroEntity{
 		
 		for(int i = 0; i < satelliteList.size(); i++) {
 			satelliteNames.append(satelliteList.get(i));
+			
+			// don't append the comma if it's the last item in the list
 			if (i != satelliteList.size()-1){
 				satelliteNames.append(", ");
 			}

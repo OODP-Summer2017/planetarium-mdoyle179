@@ -1,5 +1,9 @@
 package com.mdoyle.Planetarium;
 
+/**
+ * Abstract class for all Astronomical Entities
+ *
+ */
 public abstract class AstroEntity {
 	private String commonName;
 
@@ -9,6 +13,10 @@ public abstract class AstroEntity {
 	
 	public abstract String getCelestialClassification();
 	
+	/**
+	 * Gets the factual summary
+	 * @return String with the summary
+	 */
 	public String getFactualSummary(){
 		return "Name = " + getCommonName() + "\n" +
 				"Celstial Classification = " + getCelestialClassification() + "\n";

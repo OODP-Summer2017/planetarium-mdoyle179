@@ -2,7 +2,12 @@ package com.mdoyle.Planetarium;
 
 import java.util.List;
 
+/**
+ * Defines general characteristics of Stars
+ *
+ */
 public abstract class Star extends AstroEntity{
+	
 	private String constellationDesignation;
 	private StarTempType spectralType;
 	private double apparentMagnitude;
@@ -28,6 +33,8 @@ public abstract class Star extends AstroEntity{
 		
 		for(int i = 0; i < planetList.size(); i++) {
 			planetNames.append(planetList.get(i).getCommonName());
+			
+			// don't append the comma if it's the last item in the list
 			if (i != planetList.size()-1){
 				planetNames.append(", ");
 			}

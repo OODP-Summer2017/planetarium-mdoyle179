@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Implementation of the CelestialVisitor
+ */
 public class CelestialVisitorImpl extends AstroEntity implements CelestialVisitor {
 	
 	public CelestialVisitorImpl(String commonName) {
