@@ -8,32 +8,17 @@ import java.util.Date;
  * Implementation of the CelestialVisitor
  */
 public class CelestialVisitorImpl extends AstroEntity implements CelestialVisitor {
+
+	private Date nextAppearsOn;
+	private Date lastAppearedOn;
+	private boolean isPredictable;
 	
-	public CelestialVisitorImpl(String commonName) {
+
+	public CelestialVisitorImpl(String commonName, Date nextAppearsOn, Date lastAppearedOn, boolean isPredictable) {
 		super(commonName);
-	}
-
-	@Override
-	public Date lastAppearedOn() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.MONTH, Calendar.JANUARY);
-		calendar.set(Calendar.DAY_OF_MONTH, 1);
-		calendar.set(Calendar.YEAR, 1986);		
-		return calendar.getTime();
-	}
-
-	@Override
-	public Date nextAppearsOn() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.MONTH, Calendar.JANUARY);
-		calendar.set(Calendar.DAY_OF_MONTH, 1);
-		calendar.set(Calendar.YEAR, 2061);	
-		return calendar.getTime();
-	}
-
-	@Override
-	public boolean isPredictable() {
-		return true;
+		this.nextAppearsOn = nextAppearsOn;
+		this.lastAppearedOn = lastAppearedOn;
+		this.isPredictable = isPredictable;
 	}
 
 	@Override
@@ -52,6 +37,33 @@ public class CelestialVisitorImpl extends AstroEntity implements CelestialVisito
 		return super.getFactualSummary() +
 				"Is predictable = " + isPredictable() + "\n" + 
 				"Date last appeared = " + formattedlastAppeared + "\n" +
-				"Date next appeares = " + formattednextAppears + "\n";
+				"Date next appears = " + formattednextAppears + "\n";
 	}
+	
+	@Override
+	public Date nextAppearsOn() {
+		return nextAppearsOn;
+	}
+
+	public void setNextAppearsOn(Date nextAppearsOn) {
+		this.nextAppearsOn = nextAppearsOn;
+	}
+
+	public Date lastAppearedOn() {
+		return lastAppearedOn;
+	}
+
+	public void setLastAppearedOn(Date lastAppearedOn) {
+		this.lastAppearedOn = lastAppearedOn;
+	}
+
+	@Override
+	public boolean isPredictable() {
+		return isPredictable;
+	}
+	
+	public void setPredictable(boolean isPredictable) {
+		this.isPredictable = isPredictable;
+	}
+
 }

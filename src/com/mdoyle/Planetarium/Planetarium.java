@@ -87,7 +87,16 @@ public class Planetarium {
 		SupernovaStar sanduleak = new SupernovaStar("Sanduleak - 69 - 202", "Supernova 1987A", StarTempType.B, 2.9, -15.6, 163000.0, sanduleakPlanets, SupernovaType.II, peakBrillianceDate.getTime());
 		
 		// Celestial Visitors
-		CelestialVisitorImpl halleysComet = new CelestialVisitorImpl("Halley's Comet");		
+		Calendar nextAppearsOn = Calendar.getInstance();
+		nextAppearsOn.set(Calendar.MONTH, Calendar.JANUARY);
+		nextAppearsOn.set(Calendar.DAY_OF_MONTH, 1);
+		nextAppearsOn.set(Calendar.YEAR, 1986);	
+		
+		Calendar lastAppearedOn = Calendar.getInstance();
+		lastAppearedOn.set(Calendar.MONTH, Calendar.JANUARY);
+		lastAppearedOn.set(Calendar.DAY_OF_MONTH, 1);
+		lastAppearedOn.set(Calendar.YEAR, 2061);		
+		CelestialVisitorImpl halleysComet = new CelestialVisitorImpl("Halley's Comet", nextAppearsOn.getTime(), lastAppearedOn.getTime(), true);		
 
 		//Add the entities to the list
 		entities.add(sun);
