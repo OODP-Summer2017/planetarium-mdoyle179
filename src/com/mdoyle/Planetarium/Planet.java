@@ -38,10 +38,22 @@ public abstract class Planet extends AstroEntity{
 				satelliteNames.append(", ");
 			}
 		}		
+		Quantity earthDay = new Quantity();
+		earthDay.setUnit("EARTH_DAY");
+		earthDay.setValue(getSiderealDay());
+		
+		Quantity orbitalPeriod = new Quantity();
+		orbitalPeriod.setUnit("EARTH_DAY");
+		orbitalPeriod.setValue(getOrbitalPeriod());
+		
+		Quantity distanceFromSun = new Quantity();
+		distanceFromSun.setUnit("AU");
+		distanceFromSun.setValue(getDistanceFromSun());
+		
 		return  super.getFactualSummary() + 
-				"Distance from Sun = " + getDistanceFromSun() + " AU \n" + 
-				"Sidereal Day = " + getSiderealDay() + "\n" + 
-				"Orbital Period = " + getOrbitalPeriod() + "\n" + 
+				"Distance from Sun = " + distanceFromSun.toString() + "\n" + 
+				"Sidereal Day = " + earthDay.toString() + "\n" + 
+				"Orbital Period = " + orbitalPeriod.toString() + "\n" + 
 				"Has rings = " + hasRings() + "\n" + 
 				"Number of Satellites = " + getNumOfSatellites() + "\n" +
 				"Largest Satellites = " + satelliteNames + "\n";

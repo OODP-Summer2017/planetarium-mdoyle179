@@ -38,13 +38,16 @@ public abstract class Star extends AstroEntity{
 			if (i != planetList.size()-1){
 				planetNames.append(", ");
 			}
-		}				
+		}
+		Quantity distanceFromSun = new Quantity();
+		distanceFromSun.setUnit("ly");
+		distanceFromSun.setValue(getDistanceFromSun());
 		return super.getFactualSummary() +
 				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
 				"Spectral Type = " + getSpectralType() + "\n" + 
 				"Apparent Magnitude = " + getApparentMagnitude() + "\n" + 
 				"Absolute Magnitude = " + getAbsoluteMagnitude() + "\n" + 
-				"Distance from Sun = " + getDistanceFromSun() + " light years \n" +
+				"Distance from Sun = " +  distanceFromSun.toString() + "\n" +
 				"Planets = " + planetNames.toString() + "\n";
 	}
 	
