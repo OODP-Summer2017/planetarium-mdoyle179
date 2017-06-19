@@ -1,8 +1,14 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.DataTypes;
 
-public class Quantity {
+public abstract class Quantity {
+
 	private double value;
 	private String unit;
+	
+	public Quantity(double value) {
+		this.value = value;
+		this.unit = getUnit();
+	}
 	
 	public double getValue() {
 		return value;
@@ -10,12 +16,7 @@ public class Quantity {
 	public void setValue(double value) {
 		this.value = value;
 	}
-	public String getUnit() {
-		return unit;
-	}
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
+	public abstract String getUnit();
 	
 	public String toString() {
 		return this.value + " " + this.unit;

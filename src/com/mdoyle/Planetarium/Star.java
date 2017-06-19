@@ -2,6 +2,10 @@ package com.mdoyle.Planetarium;
 
 import java.util.List;
 
+import com.mdoyle.Planetarium.DataTypes.LightYears;
+import com.mdoyle.Planetarium.DataTypes.Quantity;
+import com.mdoyle.Planetarium.DataTypes.SolarMass;
+
 /**
  * Defines general characteristics of Stars
  *
@@ -14,6 +18,7 @@ public abstract class Star extends AstroEntity{
 	private double absoluteMagnitude;
 	private double distanceFromSun;
 	private List<Planet> planets;
+	private Quantity starMass;
 	
 	public Star(String commonName, String constellationDesignation, StarTempType spectralType, double apparentMagnitude,
 			double absoluteMagnitude, double distanceFromSun, List<Planet> planets) {
@@ -39,9 +44,8 @@ public abstract class Star extends AstroEntity{
 				planetNames.append(", ");
 			}
 		}
-		Quantity distanceFromSun = new Quantity();
-		distanceFromSun.setUnit("ly");
-		distanceFromSun.setValue(getDistanceFromSun());
+		LightYears distanceFromSun = new LightYears(getDistanceFromSun());
+		//TODO fix this part for lightyears
 		return super.getFactualSummary() +
 				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
 				"Spectral Type = " + getSpectralType() + "\n" + 
@@ -51,6 +55,15 @@ public abstract class Star extends AstroEntity{
 				"Planets = " + planetNames.toString() + "\n";
 	}
 	
+	public Quantity getMass() {
+		return starMass;
+	}
+
+	public void setStarMass(Quantity starMass) {
+		SolarMass solarMass = new SolarMass(starMass.getValue());
+		this.starMass = solarMass;
+	}
+
 	public String getConstellationDesignation() {
 		return constellationDesignation;
 	}

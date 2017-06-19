@@ -2,21 +2,27 @@ package com.mdoyle.Planetarium;
 
 import java.util.List;
 
+import com.mdoyle.Planetarium.DataTypes.AstronomicalUnit;
+import com.mdoyle.Planetarium.DataTypes.EarthDay;
+import com.mdoyle.Planetarium.DataTypes.EarthMass;
+import com.mdoyle.Planetarium.DataTypes.Quantity;
+
 /**
  * Defines general characteristics of Planets
  *
  */
 public abstract class Planet extends AstroEntity{
 	
-	private double distanceFromSun;
-	private double siderealDay;
-	private double orbitalPeriod;
+	private AstronomicalUnit distanceFromSun;
+	private EarthDay siderealDay;
+	private EarthDay orbitalPeriod;
 	private int numOfSatellites;
 	private List<String> namesOfBiggestSatellites;
 	private boolean hasRings;
+	private EarthMass planetMass;
 	
-	public Planet(String commonName, double distanceFromSun, double siderealDay, double orbitalPeriod,
-			int numOfSatellites, List<String> namesOfBiggestSatellites, boolean hasRings) {
+	public Planet(String commonName, AstronomicalUnit distanceFromSun, EarthDay siderealDay, EarthDay orbitalPeriod,
+			int numOfSatellites, List<String> namesOfBiggestSatellites, boolean hasRings, EarthMass planetMass) {
 		super(commonName);
 		this.distanceFromSun = distanceFromSun;
 		this.siderealDay = siderealDay;
@@ -24,6 +30,7 @@ public abstract class Planet extends AstroEntity{
 		this.numOfSatellites = numOfSatellites;
 		this.namesOfBiggestSatellites = namesOfBiggestSatellites;
 		this.hasRings = hasRings;
+		this.planetMass = planetMass;
 	}
 	
 	public String getFactualSummary() {
@@ -38,43 +45,50 @@ public abstract class Planet extends AstroEntity{
 				satelliteNames.append(", ");
 			}
 		}		
-		Quantity earthDay = new Quantity();
-		earthDay.setUnit("EARTH_DAY");
-		earthDay.setValue(getSiderealDay());
-		
-		Quantity orbitalPeriod = new Quantity();
-		orbitalPeriod.setUnit("EARTH_DAY");
-		orbitalPeriod.setValue(getOrbitalPeriod());
-		
-		Quantity distanceFromSun = new Quantity();
-		distanceFromSun.setUnit("AU");
-		distanceFromSun.setValue(getDistanceFromSun());
+//		EarthDay siderealDay = new EarthDay();
+//		siderealDay.setValue(getSiderealDay());
+//		
+//		EarthDay orbitalPeriod = new EarthDay();
+//		orbitalPeriod.setValue(getOrbitalPeriod());
+//		
+//		AstronomicalUnit distanceFromSun = new AstronomicalUnit();
+//		distanceFromSun.setValue(getDistanceFromSun());
 		
 		return  super.getFactualSummary() + 
-				"Distance from Sun = " + distanceFromSun.toString() + "\n" + 
-				"Sidereal Day = " + earthDay.toString() + "\n" + 
-				"Orbital Period = " + orbitalPeriod.toString() + "\n" + 
+				"Relative Mass = " + getMass().toString() + " = " + getMass().convertTo() + "\n" +
+				"Distance from Sun = " + getDistanceFromSun().toString() + "\n" + 
+				"Sidereal Day = " + getSiderealDay().toString() + "\n" + 
+				"Orbital Period = " + getOrbitalPeriod().toString() + "\n" + 
 				"Has rings = " + hasRings() + "\n" + 
 				"Number of Satellites = " + getNumOfSatellites() + "\n" +
 				"Largest Satellites = " + satelliteNames + "\n";
 	}
+	
+	@Override
+	public EarthMass getMass() {
+		return planetMass;
+	}
 
-	public double getDistanceFromSun() {
+	public void setPlanetMass(EarthMass planetMass) {
+		this.planetMass = planetMass;
+	}
+	
+	public AstronomicalUnit getDistanceFromSun() {
 		return distanceFromSun;
 	}
-	public void setDistanceFromSun(double distanceFromSun) {
+	public void setDistanceFromSun(AstronomicalUnit distanceFromSun) {
 		this.distanceFromSun = distanceFromSun;
 	}
-	public double getSiderealDay() {
+	public EarthDay getSiderealDay() {
 		return siderealDay;
 	}
-	public void setSiderealDay(double siderealDay) {
+	public void setSiderealDay(EarthDay siderealDay) {
 		this.siderealDay = siderealDay;
 	}
-	public double getOrbitalPeriod() {
+	public EarthDay getOrbitalPeriod() {
 		return orbitalPeriod;
 	}
-	public void setOrbitalPeriod(double orbitalPeriod) {
+	public void setOrbitalPeriod(EarthDay orbitalPeriod) {
 		this.orbitalPeriod = orbitalPeriod;
 	}
 	public int getNumOfSatellites() {

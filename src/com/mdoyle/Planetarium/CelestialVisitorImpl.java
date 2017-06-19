@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.mdoyle.Planetarium.DataTypes.Quantity;
+
 /**
  * Implementation of the CelestialVisitor
  */
@@ -64,6 +66,12 @@ public class CelestialVisitorImpl extends AstroEntity implements CelestialVisito
 	
 	public void setPredictable(boolean isPredictable) {
 		this.isPredictable = isPredictable;
+	}
+
+	@Override
+	public Quantity getMass() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

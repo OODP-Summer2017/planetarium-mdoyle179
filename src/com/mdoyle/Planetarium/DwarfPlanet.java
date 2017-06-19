@@ -2,13 +2,17 @@ package com.mdoyle.Planetarium;
 
 import java.util.List;
 
+import com.mdoyle.Planetarium.DataTypes.AstronomicalUnit;
+import com.mdoyle.Planetarium.DataTypes.EarthDay;
+import com.mdoyle.Planetarium.DataTypes.EarthMass;
+
 public class DwarfPlanet extends Planet{
 	private boolean hasIrregularShape;
 
-	public DwarfPlanet(String commonName, double distanceFromSun, double siderealDay, double orbitalPeriod,
-			int numOfSatellites, List<String> namesOfBiggestSatellies, boolean hasRings, boolean hasIrregularShape) {
+	public DwarfPlanet(String commonName, AstronomicalUnit distanceFromSun, EarthDay siderealDay, EarthDay orbitalPeriod,
+			int numOfSatellites, List<String> namesOfBiggestSatellies, boolean hasRings, boolean hasIrregularShape, EarthMass mass) {
 		super(commonName, distanceFromSun, siderealDay, orbitalPeriod, numOfSatellites, namesOfBiggestSatellies,
-				hasRings);
+				hasRings, mass);
 		this.hasIrregularShape = hasIrregularShape;
 	}
 

@@ -1,5 +1,7 @@
 package com.mdoyle.Planetarium;
 
+import com.mdoyle.Planetarium.DataTypes.Quantity;
+
 /**
  * Abstract class for all Astronomical Entities
  *
@@ -12,6 +14,8 @@ public abstract class AstroEntity {
 	}
 	
 	public abstract String getCelestialClassification();
+	
+	public abstract Quantity getMass();
 	
 	/**
 	 * Gets the factual summary
