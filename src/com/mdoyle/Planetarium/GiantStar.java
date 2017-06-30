@@ -26,7 +26,7 @@ public class GiantStar extends Star{
 	@Override
 	public String getFactualSummary() {
 		return super.getFactualSummary() +
-				"Giantness = " + getGiantness() + "\n";
+				"Giantness = " + getGiantness() + System.lineSeparator();
 	}
 	
 	public GiantnessType getGiantness() {

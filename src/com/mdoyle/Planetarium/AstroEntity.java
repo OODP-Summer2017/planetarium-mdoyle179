@@ -22,8 +22,8 @@ public abstract class AstroEntity {
 	 * @return String with the summary
 	 */
 	public String getFactualSummary(){
-		return "Name = " + getCommonName() + "\n" +
-				"Celstial Classification = " + getCelestialClassification() + "\n";
+		return "Name = " + getCommonName() + System.lineSeparator() +
+				"Celstial Classification = " + getCelestialClassification() + System.lineSeparator();
 	}
 	
 	public String getCommonName() {

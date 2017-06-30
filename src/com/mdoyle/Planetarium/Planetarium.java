@@ -3,16 +3,13 @@ package com.mdoyle.Planetarium;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 
 import com.mdoyle.Planetarium.DataTypes.AstronomicalUnit;
 import com.mdoyle.Planetarium.DataTypes.EarthDay;
 import com.mdoyle.Planetarium.DataTypes.EarthMass;
 import com.mdoyle.Planetarium.DataTypes.LightYears;
-import com.mdoyle.Planetarium.DataTypes.Quantity;
 import com.mdoyle.Planetarium.DataTypes.SolarMass;
-import com.sun.javafx.collections.MappingChange.Map;
 
 /**
  * Driver class for the program. Creates instances of all the concrete classes

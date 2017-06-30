@@ -5,7 +5,6 @@ import java.util.List;
 import com.mdoyle.Planetarium.DataTypes.AstronomicalUnit;
 import com.mdoyle.Planetarium.DataTypes.EarthDay;
 import com.mdoyle.Planetarium.DataTypes.EarthMass;
-import com.mdoyle.Planetarium.DataTypes.Quantity;
 
 /**
  * Defines general characteristics of Planets
@@ -47,13 +46,13 @@ public abstract class Planet extends AstroEntity{
 		}		
 		
 		return  super.getFactualSummary() + 
-				"Relative Mass = " + getMass().toString() + " = " + getMass().convertTo() + "\n" +
-				"Distance from Sun = " + getDistanceFromSun().toString() + "\n" + 
-				"Sidereal Day = " + getSiderealDay().toString() + "\n" + 
-				"Orbital Period = " + getOrbitalPeriod().toString() + "\n" + 
-				"Has rings = " + hasRings() + "\n" + 
-				"Number of Satellites = " + getNumOfSatellites() + "\n" +
-				"Largest Satellites = " + satelliteNames + "\n";
+				"Relative Mass = " + getMass().toString() + " = " + getMass().convertTo() + System.lineSeparator() +
+				"Distance from Sun = " + getDistanceFromSun().toString() + System.lineSeparator() + 
+				"Sidereal Day = " + getSiderealDay().toString() + System.lineSeparator() + 
+				"Orbital Period = " + getOrbitalPeriod().toString() + System.lineSeparator() + 
+				"Has rings = " + hasRings() + System.lineSeparator() + 
+				"Number of Satellites = " + getNumOfSatellites() + System.lineSeparator() +
+				"Largest Satellites = " + satelliteNames + System.lineSeparator();
 	}
 	
 	@Override

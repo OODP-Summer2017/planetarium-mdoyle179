@@ -24,7 +24,7 @@ public class DwarfPlanet extends Planet{
 	@Override
 	public String getFactualSummary() {
 		return super.getFactualSummary() +
-				"Has Irregular Shape = " + hasIrregularShape() + "\n";
+				"Has Irregular Shape = " + hasIrregularShape() + System.lineSeparator();
 	}
 	
 	public boolean hasIrregularShape() {

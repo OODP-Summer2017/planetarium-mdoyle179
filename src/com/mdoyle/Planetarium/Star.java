@@ -48,13 +48,13 @@ public abstract class Star extends AstroEntity{
 		}
 
 		return super.getFactualSummary() +
-				"Relative Mass = " + getMass().toString() +"\n" +
-				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
-				"Spectral Type = " + getSpectralType() + "\n" + 
-				"Apparent Magnitude = " + getApparentMagnitude() + "\n" + 
-				"Absolute Magnitude = " + getAbsoluteMagnitude() + "\n" + 
-				"Distance from Sun = " +  getDistanceFromSun().toString() + "\n" +
-				"Planets = " + planetNames.toString() + "\n";
+				"Relative Mass = " + getMass().toString() + System.lineSeparator() +
+				"Constellation Desgination = " + getConstellationDesignation() + System.lineSeparator() + 
+				"Spectral Type = " + getSpectralType() + System.lineSeparator() + 
+				"Apparent Magnitude = " + getApparentMagnitude() + System.lineSeparator() + 
+				"Absolute Magnitude = " + getAbsoluteMagnitude() + System.lineSeparator() + 
+				"Distance from Sun = " +  getDistanceFromSun().toString() + System.lineSeparator() +
+				"Planets = " + planetNames.toString() + System.lineSeparator();
 	}
 	
 	public Quantity getMass() {

@@ -33,6 +33,6 @@ public class TerrestialPlanet extends Planet{
 	@Override
 	public String getFactualSummary() {
 		return super.getFactualSummary() +
-			"Has ice caps = " + hasIceCap() + "\n";
+			"Has ice caps = " + hasIceCap() + System.lineSeparator();
 	}
 }

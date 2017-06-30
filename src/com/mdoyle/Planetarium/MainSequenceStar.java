@@ -35,6 +35,6 @@ public class MainSequenceStar extends Star{
 	@Override
 	public String getFactualSummary() {
 		return super.getFactualSummary() +
-				"Relative Mass = " + getRelativeMassToSun() + "\n";
+				"Relative Mass = " + getRelativeMassToSun() + System.lineSeparator();
 	}
 }

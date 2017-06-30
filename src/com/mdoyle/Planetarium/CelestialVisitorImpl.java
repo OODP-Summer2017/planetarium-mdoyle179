@@ -1,7 +1,6 @@
 package com.mdoyle.Planetarium;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import com.mdoyle.Planetarium.DataTypes.Quantity;
@@ -37,9 +36,9 @@ public class CelestialVisitorImpl extends AstroEntity implements CelestialVisito
 		String formattednextAppears = sdf.format(nextAppears.getTime());
 		
 		return super.getFactualSummary() +
-				"Is predictable = " + isPredictable() + "\n" + 
-				"Date last appeared = " + formattedlastAppeared + "\n" +
-				"Date next appears = " + formattednextAppears + "\n";
+				"Is predictable = " + isPredictable() + System.lineSeparator() + 
+				"Date last appeared = " + formattedlastAppeared + System.lineSeparator() +
+				"Date next appears = " + formattednextAppears + System.lineSeparator();
 	}
 	
 	@Override

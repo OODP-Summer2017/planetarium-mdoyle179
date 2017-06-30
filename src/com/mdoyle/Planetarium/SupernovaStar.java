@@ -33,8 +33,8 @@ public class SupernovaStar extends Star{
 		String formattedDate = sdf.format(peakBrillianceDate.getTime());
 		
 		return super.getFactualSummary() +
-				"Supernova Type = " + getSupernovaType() + "\n" + 
-				"Peak brilliance date = " + formattedDate + "\n";
+				"Supernova Type = " + getSupernovaType() + System.lineSeparator() + 
+				"Peak brilliance date = " + formattedDate + System.lineSeparator();
 	}
 	
 	public SupernovaType getSupernovaType() {
