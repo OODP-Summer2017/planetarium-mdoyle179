@@ -1,5 +1,6 @@
 package com.mdoyle.Planetarium;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.mdoyle.Planetarium.DataTypes.LightYears;
@@ -14,14 +15,14 @@ public abstract class Star extends AstroEntity{
 	
 	private String constellationDesignation;
 	private StarTempType spectralType;
-	private double apparentMagnitude;
-	private double absoluteMagnitude;
-	private double distanceFromSun;
+	private BigDecimal apparentMagnitude;
+	private BigDecimal absoluteMagnitude;
+	private LightYears distanceFromSun;
 	private List<Planet> planets;
-	private Quantity starMass;
+	private SolarMass starMass;
 	
-	public Star(String commonName, String constellationDesignation, StarTempType spectralType, double apparentMagnitude,
-			double absoluteMagnitude, double distanceFromSun, List<Planet> planets) {
+	public Star(String commonName, String constellationDesignation, StarTempType spectralType, BigDecimal apparentMagnitude,
+			BigDecimal absoluteMagnitude, LightYears distanceFromSun, List<Planet> planets, SolarMass starMass) {
 		super(commonName);
 		this.constellationDesignation = constellationDesignation;
 		this.spectralType = spectralType;
@@ -29,6 +30,7 @@ public abstract class Star extends AstroEntity{
 		this.absoluteMagnitude = absoluteMagnitude;
 		this.distanceFromSun = distanceFromSun;
 		this.planets = planets;
+		this.starMass = starMass;
 	}
 
 	@Override
@@ -44,14 +46,14 @@ public abstract class Star extends AstroEntity{
 				planetNames.append(", ");
 			}
 		}
-		LightYears distanceFromSun = new LightYears(getDistanceFromSun());
-		//TODO fix this part for lightyears
+
 		return super.getFactualSummary() +
+				"Relative Mass = " + getMass().toString() +"\n" +
 				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
 				"Spectral Type = " + getSpectralType() + "\n" + 
 				"Apparent Magnitude = " + getApparentMagnitude() + "\n" + 
 				"Absolute Magnitude = " + getAbsoluteMagnitude() + "\n" + 
-				"Distance from Sun = " +  distanceFromSun.toString() + "\n" +
+				"Distance from Sun = " +  getDistanceFromSun().toString() + "\n" +
 				"Planets = " + planetNames.toString() + "\n";
 	}
 	
@@ -76,16 +78,16 @@ public abstract class Star extends AstroEntity{
 	public void setSpectralType(StarTempType spectralType) {
 		this.spectralType = spectralType;
 	}
-	public double getApparentMagnitude() {
+	public BigDecimal getApparentMagnitude() {
 		return apparentMagnitude;
 	}
-	public void setApparentMagnitude(double apparentMagnitude) {
+	public void setApparentMagnitude(BigDecimal apparentMagnitude) {
 		this.apparentMagnitude = apparentMagnitude;
 	}
-	public double getDistanceFromSun() {
+	public LightYears getDistanceFromSun() {
 		return distanceFromSun;
 	}
-	public void setDistanceFromSun(double distanceFromSun) {
+	public void setDistanceFromSun(LightYears distanceFromSun) {
 		this.distanceFromSun = distanceFromSun;
 	}
 	public List<Planet> getPlanets() {
@@ -94,10 +96,10 @@ public abstract class Star extends AstroEntity{
 	public void setPlanets(List<Planet> planets) {
 		this.planets = planets;
 	}
-	public double getAbsoluteMagnitude() {
+	public BigDecimal getAbsoluteMagnitude() {
 		return absoluteMagnitude;
 	}
-	public void setAbsoluteMagnitude(double absoluteMagnitude) {
+	public void setAbsoluteMagnitude(BigDecimal absoluteMagnitude) {
 		this.absoluteMagnitude = absoluteMagnitude;
 	}
 }

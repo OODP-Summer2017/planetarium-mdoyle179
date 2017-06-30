@@ -1,18 +1,20 @@
 package com.mdoyle.Planetarium.DataTypes;
 
+import java.math.BigDecimal;
+
 public class AstronomicalUnit extends Quantity implements Convertable{
 
-	public AstronomicalUnit(double value) {
+	public AstronomicalUnit(BigDecimal value) {
 		super(value);
 	}
 
-	final double LY_CONVERSION_FACTOR = 0.000015812281999789;
+	final BigDecimal LY_CONVERSION_FACTOR = new BigDecimal("0.000015812281999789");
 	
 	@Override
 	public Quantity convertTo() {
 		
 		//convertToLightYears from AU
-		LightYears ly = new LightYears(super.getValue() * LY_CONVERSION_FACTOR);
+		LightYears ly = new LightYears(super.getValue().multiply(LY_CONVERSION_FACTOR));
 		return ly;
 	}
 

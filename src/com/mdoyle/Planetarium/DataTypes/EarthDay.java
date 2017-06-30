@@ -1,8 +1,10 @@
 package com.mdoyle.Planetarium.DataTypes;
 
+import java.math.BigDecimal;
+
 public class EarthDay extends Quantity{
 
-	public EarthDay(double value) {
+	public EarthDay(BigDecimal value) {
 		super(value);
 	}
 

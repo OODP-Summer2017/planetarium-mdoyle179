@@ -45,14 +45,6 @@ public abstract class Planet extends AstroEntity{
 				satelliteNames.append(", ");
 			}
 		}		
-//		EarthDay siderealDay = new EarthDay();
-//		siderealDay.setValue(getSiderealDay());
-//		
-//		EarthDay orbitalPeriod = new EarthDay();
-//		orbitalPeriod.setValue(getOrbitalPeriod());
-//		
-//		AstronomicalUnit distanceFromSun = new AstronomicalUnit();
-//		distanceFromSun.setValue(getDistanceFromSun());
 		
 		return  super.getFactualSummary() + 
 				"Relative Mass = " + getMass().toString() + " = " + getMass().convertTo() + "\n" +

@@ -1,24 +1,28 @@
 package com.mdoyle.Planetarium;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+import com.mdoyle.Planetarium.DataTypes.LightYears;
+import com.mdoyle.Planetarium.DataTypes.SolarMass;
 
 public class MainSequenceStar extends Star{
 	
-	private double relativeMassToSun;
+	private BigDecimal relativeMassToSun;
 
 	public MainSequenceStar(String commonName, String constellationDesignation, StarTempType spectralType,
-			double apparentMagnitude, double absoluteMagnitude, double distanceFromSun, List<Planet> planets,
-			double relativeMassToSun) {
+			BigDecimal apparentMagnitude, BigDecimal absoluteMagnitude, LightYears distanceFromSun, List<Planet> planets,
+			BigDecimal relativeMassToSun, SolarMass starMass) {
 		super(commonName, constellationDesignation, spectralType, apparentMagnitude, absoluteMagnitude, distanceFromSun,
-				planets);
+				planets, starMass);
 		this.relativeMassToSun = relativeMassToSun;
 	}
 
-	public double getRelativeMassToSun() {
+	public BigDecimal getRelativeMassToSun() {
 		return relativeMassToSun;
 	}
 
-	public void setRelativeMassToSun(double relativeMassToSun) {
+	public void setRelativeMassToSun(BigDecimal relativeMassToSun) {
 		this.relativeMassToSun = relativeMassToSun;
 	}
 	

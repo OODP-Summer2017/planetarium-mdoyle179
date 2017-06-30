@@ -1,17 +1,19 @@
 package com.mdoyle.Planetarium.DataTypes;
 
+import java.math.BigDecimal;
+
 public class SolarMass extends Quantity implements Convertable{
 	
-	public SolarMass(double value) {
+	public SolarMass(BigDecimal value) {
 		super(value);
 	}
 
-	final double EARTH_MASS_CONVERSION_FACTOR = 333000.0;
+	final BigDecimal EARTH_MASS_CONVERSION_FACTOR = new BigDecimal("333000.0");
 	
 	@Override
 	public Quantity convertTo() {
 		//Convert to Earth Mass
-		EarthMass earthMass = new EarthMass(super.getValue() * EARTH_MASS_CONVERSION_FACTOR);
+		EarthMass earthMass = new EarthMass(super.getValue().multiply(EARTH_MASS_CONVERSION_FACTOR));
 		return earthMass;
 	}
 	

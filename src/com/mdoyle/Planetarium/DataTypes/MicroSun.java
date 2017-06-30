@@ -1,8 +1,10 @@
 package com.mdoyle.Planetarium.DataTypes;
 
+import java.math.BigDecimal;
+
 public class MicroSun extends Quantity{
 
-	public MicroSun(double value) {
+	public MicroSun(BigDecimal value) {
 		super(value);
 	}
 

@@ -1,16 +1,20 @@
 package com.mdoyle.Planetarium;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+import com.mdoyle.Planetarium.DataTypes.LightYears;
+import com.mdoyle.Planetarium.DataTypes.SolarMass;
 
 public class GiantStar extends Star{
 
 	private GiantnessType giantness;
 
 	public GiantStar(String commonName, String constellationDesignation, StarTempType spectralType,
-			double apparentMagnitude, double absoluteMagnitude, double distanceFromSun, List<Planet> planets,
-			GiantnessType giantness) {
+			BigDecimal apparentMagnitude, BigDecimal absoluteMagnitude, LightYears distanceFromSun, List<Planet> planets,
+			GiantnessType giantness, SolarMass starMass) {
 		super(commonName, constellationDesignation, spectralType, apparentMagnitude, absoluteMagnitude, distanceFromSun,
-				planets);
+				planets, starMass);
 		this.giantness = giantness;
 	}
 
