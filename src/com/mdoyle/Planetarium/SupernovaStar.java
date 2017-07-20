@@ -1,8 +1,12 @@
 package com.mdoyle.Planetarium;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import com.mdoyle.Planetarium.DataTypes.LightYears;
+import com.mdoyle.Planetarium.DataTypes.SolarMass;
 
 public class SupernovaStar extends Star{
 	
@@ -10,10 +14,10 @@ public class SupernovaStar extends Star{
 	private Date peakBrillianceDate;
 	
 	public SupernovaStar(String commonName, String constellationDesignation, StarTempType spectralType,
-			double apparentMagnitude, double absoluteMagnitude, double distanceFromSun, List<Planet> planets,
-			SupernovaType supernovaType, Date peakBrillianceDate) {
+			BigDecimal apparentMagnitude, BigDecimal absoluteMagnitude, LightYears distanceFromSun, List<Planet> planets,
+			SupernovaType supernovaType, Date peakBrillianceDate, SolarMass starMass) {
 		super(commonName, constellationDesignation, spectralType, apparentMagnitude, absoluteMagnitude, distanceFromSun,
-				planets);
+				planets, starMass);
 		this.supernovaType = supernovaType;
 		this.peakBrillianceDate = peakBrillianceDate;
 	}
@@ -26,14 +30,11 @@ public class SupernovaStar extends Star{
 	@Override
 	public String getFactualSummary() {
 		SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy");
-		//GregorianCalendar brillianceDate = getPeakBrillianceDate();
-		//Calendar brillianceDate = Calendar.getInstance();
-		//sdf.setCalendar(getPeakBrillianceDate);
 		String formattedDate = sdf.format(peakBrillianceDate.getTime());
 		
 		return super.getFactualSummary() +
-				"Supernova Type = " + getSupernovaType() + "\n" + 
-				"Peak brilliance date = " + formattedDate + "\n";
+				"Supernova Type = " + getSupernovaType() + System.lineSeparator() + 
+				"Peak brilliance date = " + formattedDate + System.lineSeparator();
 	}
 	
 	public SupernovaType getSupernovaType() {

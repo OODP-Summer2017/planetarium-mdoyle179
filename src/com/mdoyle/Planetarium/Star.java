@@ -1,6 +1,11 @@
 package com.mdoyle.Planetarium;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+import com.mdoyle.Planetarium.DataTypes.LightYears;
+import com.mdoyle.Planetarium.DataTypes.Quantity;
+import com.mdoyle.Planetarium.DataTypes.SolarMass;
 
 /**
  * Defines general characteristics of Stars
@@ -10,13 +15,14 @@ public abstract class Star extends AstroEntity{
 	
 	private String constellationDesignation;
 	private StarTempType spectralType;
-	private double apparentMagnitude;
-	private double absoluteMagnitude;
-	private double distanceFromSun;
+	private BigDecimal apparentMagnitude;
+	private BigDecimal absoluteMagnitude;
+	private LightYears distanceFromSun;
 	private List<Planet> planets;
+	private SolarMass starMass;
 	
-	public Star(String commonName, String constellationDesignation, StarTempType spectralType, double apparentMagnitude,
-			double absoluteMagnitude, double distanceFromSun, List<Planet> planets) {
+	public Star(String commonName, String constellationDesignation, StarTempType spectralType, BigDecimal apparentMagnitude,
+			BigDecimal absoluteMagnitude, LightYears distanceFromSun, List<Planet> planets, SolarMass starMass) {
 		super(commonName);
 		this.constellationDesignation = constellationDesignation;
 		this.spectralType = spectralType;
@@ -24,6 +30,7 @@ public abstract class Star extends AstroEntity{
 		this.absoluteMagnitude = absoluteMagnitude;
 		this.distanceFromSun = distanceFromSun;
 		this.planets = planets;
+		this.starMass = starMass;
 	}
 
 	@Override
@@ -38,16 +45,27 @@ public abstract class Star extends AstroEntity{
 			if (i != planetList.size()-1){
 				planetNames.append(", ");
 			}
-		}				
+		}
+
 		return super.getFactualSummary() +
-				"Constellation Desgination = " + getConstellationDesignation() + "\n" + 
-				"Spectral Type = " + getSpectralType() + "\n" + 
-				"Apparent Magnitude = " + getApparentMagnitude() + "\n" + 
-				"Absolute Magnitude = " + getAbsoluteMagnitude() + "\n" + 
-				"Distance from Sun = " + getDistanceFromSun() + " light years \n" +
-				"Planets = " + planetNames.toString() + "\n";
+				"Relative Mass = " + getMass().toString() + System.lineSeparator() +
+				"Constellation Desgination = " + getConstellationDesignation() + System.lineSeparator() + 
+				"Spectral Type = " + getSpectralType() + System.lineSeparator() + 
+				"Apparent Magnitude = " + getApparentMagnitude() + System.lineSeparator() + 
+				"Absolute Magnitude = " + getAbsoluteMagnitude() + System.lineSeparator() + 
+				"Distance from Sun = " +  getDistanceFromSun().toString() + System.lineSeparator() +
+				"Planets = " + planetNames.toString() + System.lineSeparator();
 	}
 	
+	public Quantity getMass() {
+		return starMass;
+	}
+
+	public void setStarMass(Quantity starMass) {
+		SolarMass solarMass = new SolarMass(starMass.getValue());
+		this.starMass = solarMass;
+	}
+
 	public String getConstellationDesignation() {
 		return constellationDesignation;
 	}
@@ -60,16 +78,16 @@ public abstract class Star extends AstroEntity{
 	public void setSpectralType(StarTempType spectralType) {
 		this.spectralType = spectralType;
 	}
-	public double getApparentMagnitude() {
+	public BigDecimal getApparentMagnitude() {
 		return apparentMagnitude;
 	}
-	public void setApparentMagnitude(double apparentMagnitude) {
+	public void setApparentMagnitude(BigDecimal apparentMagnitude) {
 		this.apparentMagnitude = apparentMagnitude;
 	}
-	public double getDistanceFromSun() {
+	public LightYears getDistanceFromSun() {
 		return distanceFromSun;
 	}
-	public void setDistanceFromSun(double distanceFromSun) {
+	public void setDistanceFromSun(LightYears distanceFromSun) {
 		this.distanceFromSun = distanceFromSun;
 	}
 	public List<Planet> getPlanets() {
@@ -78,10 +96,10 @@ public abstract class Star extends AstroEntity{
 	public void setPlanets(List<Planet> planets) {
 		this.planets = planets;
 	}
-	public double getAbsoluteMagnitude() {
+	public BigDecimal getAbsoluteMagnitude() {
 		return absoluteMagnitude;
 	}
-	public void setAbsoluteMagnitude(double absoluteMagnitude) {
+	public void setAbsoluteMagnitude(BigDecimal absoluteMagnitude) {
 		this.absoluteMagnitude = absoluteMagnitude;
 	}
 }
