@@ -1,11 +1,13 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.Stars;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.mdoyle.Planetarium.AstroEntity;
 import com.mdoyle.Planetarium.DataTypes.LightYears;
 import com.mdoyle.Planetarium.DataTypes.Quantity;
 import com.mdoyle.Planetarium.DataTypes.SolarMass;
+import com.mdoyle.Planetarium.Planets.Planet;
 
 /**
  * Defines general characteristics of Stars

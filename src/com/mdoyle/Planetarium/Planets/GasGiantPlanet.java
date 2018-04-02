@@ -1,4 +1,4 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.Planets;
 
 import java.util.List;
 

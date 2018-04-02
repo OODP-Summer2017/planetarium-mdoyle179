@@ -1,4 +1,4 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.CelestialVisitors;
 
 import java.util.Date;
 

@@ -1,8 +1,9 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.CelestialVisitors;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.mdoyle.Planetarium.AstroEntity;
 import com.mdoyle.Planetarium.DataTypes.Quantity;
 
 /**
@@ -69,7 +70,6 @@ public class CelestialVisitorImpl extends AstroEntity implements CelestialVisito
 
 	@Override
 	public Quantity getMass() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

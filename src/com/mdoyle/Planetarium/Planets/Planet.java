@@ -1,7 +1,8 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.Planets;
 
 import java.util.List;
 
+import com.mdoyle.Planetarium.AstroEntity;
 import com.mdoyle.Planetarium.DataTypes.AstronomicalUnit;
 import com.mdoyle.Planetarium.DataTypes.EarthDay;
 import com.mdoyle.Planetarium.DataTypes.EarthMass;
