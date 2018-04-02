@@ -70,7 +70,6 @@ public class CelestialVisitorImpl extends AstroEntity implements CelestialVisito
 
 	@Override
 	public Quantity getMass() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

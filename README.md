@@ -1,2 +1,6 @@
-Changes from Class Diagram to Code Implementation:
-- changed name of class from CelesVisitor to CelestialVisitorImpl so it was more descriptive.
+- This project was an assignment for my Object Oriented Analysis and Design course.
+- There were different phases and deliverables throughout the course.
+- There was also data provided that was used in this project.
+- To keep this README brief, I did not include the full assignment description that was provided. I just included the main User Requirement of the project.
+- Initial core User Requirement driving this project: 
+	- "As an elementary school student, I want to view key facts about astronomical entities in the Universe, so that I will learn about astronomy"

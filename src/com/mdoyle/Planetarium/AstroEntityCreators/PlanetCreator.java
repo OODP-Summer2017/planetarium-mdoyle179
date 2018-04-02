@@ -114,6 +114,7 @@ public class PlanetCreator {
 	
 	public static List<DwarfPlanet> createDwarfPlanets() {
 		List<DwarfPlanet> dwarfPlanets = new ArrayList<DwarfPlanet>();
+		
 		List<String> plutoSatellites = new ArrayList<String>();
 		plutoSatellites.add("Charon");
 		plutoSatellites.add("Nix");
