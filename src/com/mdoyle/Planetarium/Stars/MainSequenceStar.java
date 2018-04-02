@@ -1,10 +1,11 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.Stars;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 import com.mdoyle.Planetarium.DataTypes.LightYears;
 import com.mdoyle.Planetarium.DataTypes.SolarMass;
+import com.mdoyle.Planetarium.Planets.Planet;
 
 public class MainSequenceStar extends Star{
 	
@@ -30,7 +31,6 @@ public class MainSequenceStar extends Star{
 	public String getCelestialClassification() {
 		return "Main Sequence Star";
 	}
-	
 	
 	@Override
 	public String getFactualSummary() {

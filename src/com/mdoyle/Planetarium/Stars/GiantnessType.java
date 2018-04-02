@@ -1,4 +1,4 @@
-package com.mdoyle.Planetarium;
+package com.mdoyle.Planetarium.Stars;
 
 public enum GiantnessType {
 	SUPER_GIANT,
